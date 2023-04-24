@@ -1,6 +1,6 @@
 package com.epec.practice.pattern.observer;
 
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,13 +17,16 @@ import javax.annotation.Resource;
 public class OrderController {
 
     @Resource
-    private ApplicationContext applicationContext;
+    private ApplicationEventPublisher applicationEventPublisher;
 
     @GetMapping("/cancel")
     public String cancel(String orderNo){
         ChangeEvent event = new ChangeEvent(this, orderNo);
+        System.out.println("发送消息");
 
-        applicationContext.publishEvent(event);
+        applicationEventPublisher.publishEvent(event);
+
+        System.out.println("发送消息结束");
         return "success.";
     }
 }
