@@ -1,0 +1,9 @@
+package com.epec.practice.principle;
+
+/**
+ * @Description
+ * @Author zhaoxianxing
+ * @Date 2023/4/21 9:50
+ */
+public class LiskovSubstitution {
+}
