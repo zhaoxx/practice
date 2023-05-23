@@ -57,14 +57,6 @@ class StaticProxy implements IMaster {
         System.out.println("静态代理提交");
     }
 }
-//public class Consumer {
-//    public static void main(String[] args) {
-//        Master target = new Master();
-//        StaticProxy proxyInstance = new StaticProxy(target);
-//        System.out.println("proxyInstance=" + proxyInstance.getClass());
-//        proxyInstance.sell();
-//    }
-//}
 
 /**
  * 动态代理
@@ -92,9 +84,13 @@ class DynamicFactory {
 public class Consumer {
     public static void main(String[] args) {
         Master target = new Master();
-        IMaster proxyInstance = (IMaster) new DynamicFactory(target).getProxyInstance();
+        StaticProxy proxyInstance = new StaticProxy(target);
         System.out.println("proxyInstance=" + proxyInstance.getClass());
         proxyInstance.sell();
+
+        IMaster proxyInstance1 = (IMaster) new DynamicFactory(target).getProxyInstance();
+        System.out.println("proxyInstance1=" + proxyInstance1.getClass());
+        proxyInstance1.sell();
 
         Teacher target2 = new Teacher();
         ITeacher proxyInstance2 = (ITeacher) new DynamicFactory(target2).getProxyInstance();
