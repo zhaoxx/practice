@@ -1,9 +1,9 @@
-package com.epec.practice.principle;
+package com.epec.practice.pattern.template;
 
 /**
  * 游戏抽象类
  */
-public abstract class Game {
+public abstract class GameTemplate {
     void initialize() {
     };
 
@@ -26,7 +26,7 @@ public abstract class Game {
 /**
  * 篮球
  */
-class Basketball {
+class Basketball extends GameTemplate {
     void initialize() {
         System.out.println("初始化");
     };
@@ -43,7 +43,7 @@ class Basketball {
 /**
  * 足球
  */
-class Football {
+class Football extends GameTemplate {
     void initialize() {
         System.out.println("初始化");
     };

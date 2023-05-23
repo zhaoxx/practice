@@ -23,12 +23,12 @@ public class ChainPatternDemo {
 
     //spring注入后自动执行，责任链的对象连接起来
     @PostConstruct
-    public void initializeChainFilter(){
+    public void initializeChainFilter() {
 
-        for(int i = 0;i<abstractHandleList.size();i++){
-            if(i == 0){
+        for (int i = 0; i < abstractHandleList.size(); i++) {
+            if (i == 0) {
                 abstractHandler = abstractHandleList.get(0);
-            }else{
+            } else {
                 AbstractHandler currentHander = abstractHandleList.get(i - 1);
                 AbstractHandler nextHander = abstractHandleList.get(i);
                 currentHander.setNextHandler(nextHander);
